@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+rectangle "Inventory Manager" as IM
+rectangle "Cashier" as C
+rectangle "Hotel Manager" as HM
+rectangle "Other ApexStay Modules" as OM
+circle "0\nApexStay Module 04\nInventory, POS & Billing" as SYS
+IM --> SYS : product, supplier, stock data
+SYS --> IM : stock balances, alerts, movement history
+C --> SYS : cart, customer, payment details
+SYS --> C : invoice, receipt, balance
+HM --> SYS : report requests
+SYS --> HM : sales and inventory reports
+OM --> SYS : future order / guest reference
+SYS --> OM : future stock and billing status
+@enduml

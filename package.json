@@ -1,0 +1,38 @@
+{
+  "name": "ApexStay_Inventory_POS_Billing_ArdeeGelelio",
+  "version": "1.0.0",
+  "description": "XianFire Framework project",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "xian": "./bin/xian.js"
+  },
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "dev": "nodemon --exec \"node --env-file=.env\" index.js",
+    "xian": "nodemon --exec \"node --env-file=.env\" index.js",
+    "migrate": "node --env-file=.env migrate.js",
+    "create:model": "node create.js model",
+    "create:controller": "node create.js controller",
+    "create:add-middleware": "node create.js middleware",
+    "create:upload-middleware": "node create.js upload-middleware",
+    "route:list": "node list-routes.js",
+    "route:cache": "node route-cache.js",
+    "seed": "node --env-file=.env seed.js",
+    "test:smoke": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "inquirer": "^9.2.15",
+    "bcrypt": "^5.1.0",
+    "express-session": "^1.17.3",
+    "connect-flash": "^0.1.1",
+    "hbs": "^4.2.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.9.2",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

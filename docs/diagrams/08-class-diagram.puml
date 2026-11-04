@@ -1,0 +1,15 @@
+@startuml
+class Category {+id: integer +name: string +description: text +isActive: boolean}
+class Supplier {+id: integer +name: string +contactPerson: string +email: string +phone: string +address: text +isActive: boolean}
+class Product {+id: integer +sku: string +name: string +unit: string +costPrice: decimal +sellingPrice: decimal +stockQuantity: decimal +reorderLevel: decimal +isActive: boolean}
+class StockMovement {+id: integer +type: IN|OUT|ADJUSTMENT +quantity: decimal +reference: string +reason: string +balanceAfter: decimal +performedBy: string}
+class Sale {+id: integer +invoiceNumber: string +customerName: string +subtotal: decimal +discount: decimal +tax: decimal +total: decimal +amountPaid: decimal +balance: decimal +status: enum}
+class SaleItem {+id: integer +productName: string +sku: string +quantity: decimal +unitPrice: decimal +unitCost: decimal +lineTotal: decimal}
+class Payment {+id: integer +paymentReference: string +amount: decimal +method: enum +paidAt: datetime +receivedBy: string}
+Category "0..1" -- "0..*" Product
+Supplier "0..1" -- "0..*" Product
+Product "1" -- "0..*" StockMovement
+Product "1" -- "0..*" SaleItem
+Sale "1" *-- "1..*" SaleItem
+Sale "1" *-- "0..*" Payment
+@enduml

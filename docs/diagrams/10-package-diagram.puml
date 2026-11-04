@@ -1,0 +1,23 @@
+@startuml
+package "frontend" {
+ package "src/pages & views" as pages
+ package "src/components" as comps
+ package "src/services" as client
+}
+package "XianFire backend" {
+ package "routes" as routes
+ package "controllers" as controllers
+ package "services" as services
+ package "models" as models
+ package "config" as config
+}
+package "Database" { package "MySQL tables" as tables }
+pages ..> comps
+pages ..> client
+client ..> routes : HTTP JSON
+routes ..> controllers
+controllers ..> services
+services ..> models
+models ..> config
+config ..> tables : Sequelize / mysql2
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+start
+:Open POS and build cart;
+:Submit checkout;
+if (Stock and input valid?) then (yes)
+ :Commit sale and stock deduction;
+ if (Initial payment received?) then (yes)
+  :Create payment record;
+ else (no)
+  :Invoice remains unpaid;
+ endif
+ :Display invoice / receipt;
+ if (Balance remains?) then (yes)
+  :Record later payment;
+  :Update invoice balance/status;
+ endif
+ :Sales and inventory reports reflect saved records;
+ stop
+else (no)
+ :Rollback and show error;
+ stop
+endif
+@enduml

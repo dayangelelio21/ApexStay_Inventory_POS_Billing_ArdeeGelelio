@@ -1,0 +1,25 @@
+@startuml
+component "React Dashboard" as UI
+component "Product & Supplier UI" as Catalog
+component "Inventory UI" as Inv
+component "POS & Invoice UI" as POS
+component "Reports UI" as Reports
+component "XianFire REST Router" as Router
+component "API Controllers" as Ctrl
+component "Inventory Service" as InvSvc
+component "Sequelize Models" as Models
+database "MySQL" as DB
+UI --> Catalog
+UI --> Inv
+UI --> POS
+UI --> Reports
+Catalog --> Router : /products /suppliers
+Inv --> Router : /inventory/*
+POS --> Router : /sales
+Reports --> Router : /reports/*
+Router --> Ctrl
+Ctrl --> InvSvc
+Ctrl --> Models
+InvSvc --> Models
+Models --> DB
+@enduml

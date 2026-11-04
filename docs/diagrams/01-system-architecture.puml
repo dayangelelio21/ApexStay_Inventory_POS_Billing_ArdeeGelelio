@@ -1,0 +1,15 @@
+@startuml
+ title ApexStay ERP — Module 04 System Architecture
+ left to right direction
+ actor "Inventory Manager / Cashier" as User
+ rectangle "React + Vite Frontend\nDashboard • Catalog • POS • Reports" as UI
+ rectangle "XianFire / Express API\nRoutes → Controllers → Services" as API
+ rectangle "Sequelize ORM" as ORM
+ database "MySQL\nApexStay Module 04" as DB
+ User --> UI : HTTPS / browser
+ UI --> API : JSON REST /api/*
+ API --> ORM : model operations
+ ORM --> DB : mysql2 / SQL
+ rectangle "Other ApexStay Modules\n(Integration boundary)" as Other
+ Other ..> API : future shared API contracts
+@enduml

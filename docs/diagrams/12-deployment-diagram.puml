@@ -1,0 +1,18 @@
+@startuml
+node "User workstation / mobile" as client {
+ artifact "Browser" as browser
+ artifact "React SPA\nVite dev :5173 / built static assets" as react
+ browser -- react
+}
+node "Application host" as host {
+ node "Node.js runtime" as node {
+  artifact "XianFire / Express\n:3000" as api
+  artifact "Sequelize + mysql2" as orm
+  api -- orm
+ }
+}
+database "MySQL Server\n:3306\napexstay_erp" as db
+browser --> api : REST JSON
+orm --> db : SQL/TCP
+note right of host : Local development uses two processes.\nProduction can serve built React assets\nthrough a web server/reverse proxy.
+@enduml

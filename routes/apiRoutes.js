@@ -1,0 +1,11 @@
+import express from 'express';
+import * as api from '../controllers/apiController.js';
+const router=express.Router();
+router.get('/health',api.health);router.get('/dashboard',api.dashboard);
+router.get('/categories',api.listCategories);router.post('/categories',api.createCategory);router.put('/categories/:id',api.updateCategory);router.delete('/categories/:id',api.deleteCategory);
+router.get('/suppliers',api.listSuppliers);router.post('/suppliers',api.createSupplier);router.put('/suppliers/:id',api.updateSupplier);router.delete('/suppliers/:id',api.deleteSupplier);
+router.get('/products',api.listProducts);router.post('/products',api.createProduct);router.put('/products/:id',api.updateProduct);router.delete('/products/:id',api.deleteProduct);
+router.get('/inventory/low-stock',api.lowStock);router.get('/inventory/movements',api.listMovements);router.post('/inventory/stock-in',api.stockIn);router.post('/inventory/stock-out',api.stockOut);router.post('/inventory/adjust',api.adjustStock);
+router.get('/sales',api.listSales);router.post('/sales',api.createSale);router.get('/sales/:id',api.getSale);router.post('/sales/:id/payments',api.addPayment);
+router.get('/reports/sales',api.salesReport);router.get('/reports/inventory',api.inventoryReport);
+export default router;

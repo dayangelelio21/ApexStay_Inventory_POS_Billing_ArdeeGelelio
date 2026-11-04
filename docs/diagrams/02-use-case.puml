@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+actor "Inventory Manager" as IM
+actor Cashier
+actor "Hotel Manager" as HM
+rectangle "ApexStay Module 04" {
+ usecase "Manage products" as U1
+ usecase "Manage suppliers" as U2
+ usecase "Receive stock" as U3
+ usecase "Issue / adjust stock" as U4
+ usecase "Monitor low stock" as U5
+ usecase "Process POS sale" as U6
+ usecase "Generate invoice / receipt" as U7
+ usecase "Record payment" as U8
+ usecase "View sales report" as U9
+ usecase "View inventory report" as U10
+}
+IM --> U1
+IM --> U2
+IM --> U3
+IM --> U4
+IM --> U5
+IM --> U10
+Cashier --> U6
+Cashier --> U7
+Cashier --> U8
+HM --> U9
+HM --> U10
+U6 .> U7 : <<include>>
+U6 .> U4 : <<include>>
+@enduml

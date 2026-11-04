@@ -1,0 +1,28 @@
+@startuml
+class "Module 04: Inventory, POS & Billing" as Module {
+ [React UI]
+ [REST API]
+ [Catalog Controller]
+ [Inventory Controller]
+ [POS Controller]
+ [Reporting Controller]
+ [Inventory Service]
+ [Sequelize Models]
+}
+interface "HTTP JSON API" as API
+interface "MySQL persistence" as SQL
+Module - API
+Module - SQL
+[React UI] --> API
+API --> [Catalog Controller]
+API --> [Inventory Controller]
+API --> [POS Controller]
+API --> [Reporting Controller]
+[Inventory Controller] --> [Inventory Service]
+[POS Controller] --> [Inventory Service]
+[Inventory Service] --> [Sequelize Models]
+[Catalog Controller] --> [Sequelize Models]
+[POS Controller] --> [Sequelize Models]
+[Reporting Controller] --> [Sequelize Models]
+[Sequelize Models] --> SQL
+@enduml

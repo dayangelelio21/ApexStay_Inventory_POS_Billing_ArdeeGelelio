@@ -1,0 +1,14 @@
+@startuml
+object "category01: Category" as cat { name = Guest Amenities }
+object "supplier01: Supplier" as sup { name = Sample Hospitality Supplier }
+object "product01: Product" as p { sku = GA-001\nname = Dental Kit\nstockQuantity = 9\nreorderLevel = 20 }
+object "sale01: Sale" as sale { invoiceNumber = APS-SAMPLE\nstatus = PARTIAL\ntotal = 450.00\nbalance = 150.00 }
+object "line01: SaleItem" as line { productName = Dental Kit\nquantity = 10\nunitPrice = 45.00\nlineTotal = 450.00 }
+object "payment01: Payment" as pay { paymentReference = PAY-SAMPLE\namount = 300.00\nmethod = CASH }
+cat -- p
+sup -- p
+sale *-- line
+line -- p
+sale *-- pay
+note bottom of p : Illustrative snapshot only.\nReplace sample values with test evidence or actual anonymized records.
+@enduml

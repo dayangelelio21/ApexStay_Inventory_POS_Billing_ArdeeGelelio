@@ -1,0 +1,14 @@
+@startuml
+[*] --> UNPAID : checkout / amountPaid = 0
+[*] --> PARTIAL : checkout / 0 < amountPaid < total
+[*] --> PAID : checkout / amountPaid = total
+UNPAID --> PARTIAL : recordPayment(amount > 0)
+UNPAID --> PAID : recordPayment(balance)
+PARTIAL --> PARTIAL : recordPayment(amount < balance)
+PARTIAL --> PAID : recordPayment(balance)
+PAID --> [*]
+UNPAID --> VOID : void sale (reserved / not exposed in current UI)
+PARTIAL --> VOID : void sale (reserved / not exposed in current UI)
+VOID --> [*]
+note right of VOID : VOID is represented in the Sale enum,\nbut a void endpoint/UI is not implemented yet.
+@enduml

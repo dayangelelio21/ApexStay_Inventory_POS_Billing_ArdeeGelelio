@@ -1,0 +1,19 @@
+@startuml
+' SysML-style requirement decomposition. Render with PlantUML SysML support.
+requirement "ApexStay Module 04" as REQ0 {
+ id = M04-REQ-0
+ text = The module shall manage inventory, material supply, POS transactions and billing.
+}
+requirement "Product and supply management" as REQ1 { id = M04-REQ-1 text = Maintain product catalog, SKU, pricing, categories and suppliers. }
+requirement "Stock control" as REQ2 { id = M04-REQ-2 text = Record stock-in, stock-out and adjustments with movement history. }
+requirement "Low-stock alerts" as REQ3 { id = M04-REQ-3 text = Identify active products at or below their reorder level. }
+requirement "POS checkout" as REQ4 { id = M04-REQ-4 text = Calculate sale subtotal, discount, tax and total and deduct stock atomically. }
+requirement "Invoice and payment" as REQ5 { id = M04-REQ-5 text = Generate invoice details and record partial or full payments and balances. }
+requirement "Reports" as REQ6 { id = M04-REQ-6 text = Provide sales summary and inventory valuation from persisted records. }
+REQ0 -down-> REQ1 : deriveReqt
+REQ0 -down-> REQ2 : deriveReqt
+REQ0 -down-> REQ3 : deriveReqt
+REQ0 -down-> REQ4 : deriveReqt
+REQ0 -down-> REQ5 : deriveReqt
+REQ0 -down-> REQ6 : deriveReqt
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+object Cashier
+object "React POS" as UI
+object "XianFire API Controller" as API
+object "Sequelize Transaction" as TX
+object "MySQL Database" as DB
+Cashier --> UI : 1. enterCart()
+UI --> API : 2. POST /api/sales
+API --> TX : 3. begin()
+TX --> DB : 4. lockProducts()
+DB --> TX : 5. productRows()
+API --> TX : 6. validateAndCalculate()
+TX --> DB : 7. createSaleAndLines()
+TX --> DB : 8. deductStockAndLedger()
+TX --> DB : 9. createPayment()
+API --> TX : 10. commit()
+API --> UI : 11. invoiceJSON()
+UI --> Cashier : 12. showInvoice()
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+actor Cashier
+participant "React POS" as UI
+participant "XianFire Route" as R
+participant "POS Controller" as C
+participant "Sequelize" as ORM
+database MySQL as DB
+Cashier -> UI : Select items / checkout
+UI -> R : POST /api/sales
+R -> C : createSale(req,res)
+C -> ORM : begin transaction
+loop each cart line
+ C -> DB : SELECT product FOR UPDATE
+ DB --> C : product + available stock
+end
+C -> C : Validate quantities, discount, tax, payment
+C -> DB : INSERT Sale + SaleItems
+C -> DB : UPDATE Products stock_quantity
+C -> DB : INSERT StockMovements
+opt initial payment > 0
+ C -> DB : INSERT Payment
+end
+C -> ORM : commit
+C --> UI : 201 invoice JSON
+UI --> Cashier : Display invoice / print
+@enduml

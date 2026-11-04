@@ -1,0 +1,19 @@
+@startuml
+robust "Product stock" as Stock
+robust "Sale payment state" as Payment
+@0
+Stock is Available
+Payment is NotCreated
+@1
+Stock is Locked
+Payment is NotCreated
+@2
+Stock is Decremented
+Payment is Unpaid
+@3
+Stock is Committed
+Payment is Partial
+@4
+Stock is Committed
+Payment is Paid
+@enduml

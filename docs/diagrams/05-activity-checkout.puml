@@ -1,0 +1,40 @@
+@startuml
+|Cashier|
+start
+:Open POS;
+:Search and add products;
+:Set quantities and customer;
+:Enter discount, tax and initial payment;
+|React Frontend|
+:Calculate preview subtotal and total;
+:Submit checkout request;
+|XianFire API|
+:Validate cart and monetary inputs;
+:Begin database transaction;
+:Lock each product row;
+if (All products active and enough stock?) then (yes)
+ :Calculate authoritative totals;
+ if (Payment <= total and discount <= subtotal?) then (yes)
+  :Create sale and sale lines;
+  :Deduct inventory;
+  :Create stock movement rows;
+  if (Initial payment > 0?) then (yes)
+   :Create payment record;
+  endif
+  :Commit transaction;
+  |React Frontend|
+  :Show invoice and receipt;
+  stop
+ else (no)
+  :Rollback transaction;
+  |React Frontend|
+  :Display validation error;
+  stop
+ endif
+else (no)
+ :Rollback transaction;
+ |React Frontend|
+ :Display insufficient stock error;
+ stop
+endif
+@enduml
