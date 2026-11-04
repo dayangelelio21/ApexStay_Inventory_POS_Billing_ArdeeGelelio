@@ -19,3 +19,14 @@
 .main-area::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
 .main-area::-webkit-scrollbar-thumb:hover{background:#94a3b8}
 
+
+/* Local demo authentication screen */
+.login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 15% 15%,#e6f0ff 0,transparent 32%),linear-gradient(135deg,#f5f8fc,#edf3f9)}
+.login-card{width:min(440px,100%);background:#fff;border:1px solid #e8eef5;border-radius:18px;padding:38px;box-shadow:0 24px 70px #1b36551a}
+.login-brand{display:flex;align-items:center;gap:11px;margin-bottom:38px}.login-brand b{display:block;font:800 17px Manrope,sans-serif;letter-spacing:1.3px;color:#173653}.login-brand small{display:block;font-size:8px;letter-spacing:1.5px;color:#8c9bab;margin-top:3px}
+.login-intro h1{font:800 28px Manrope,sans-serif;color:#20364e;margin:10px 0 7px}.login-intro p{font-size:12px;line-height:1.7;color:#8998a9;margin:0 0 26px}.login-form{display:grid;gap:17px}.login-form .field-label{font-size:9px}.login-form .form-control{font-size:12px;padding:12px}.password-wrap{position:relative}.password-wrap input{padding-right:60px}.password-wrap button{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:none;color:#2563eb;font-size:10px;font-weight:700}.login-submit{width:100%;justify-content:center;padding:13px;margin-top:4px}.login-error{padding:10px 12px;border-radius:7px;background:#fff1f0;border:1px solid #ffd9d6;color:#b6423c;font-size:11px}.demo-credentials{display:grid;gap:6px;padding:13px 14px;margin-top:20px;border:1px dashed #cbd9e8;border-radius:9px;background:#f8fbff;color:#60748a;font-size:10px}.demo-credentials b{font-size:9px;letter-spacing:1px;color:#2563eb;margin-bottom:2px}.login-footnote{text-align:center;color:#a0adba;font-size:9px;margin:18px 0 0}.logout-btn{display:flex;align-items:center;gap:7px;border:1px solid #e6ebf1;border-radius:7px;padding:8px 10px;background:#fff;color:#65768a;font-size:10px;font-weight:700}.logout-btn:hover,.profile-logout:hover{color:#dc5555;border-color:#f2caca}.profile-logout{border:0;background:transparent;color:#a0adba;padding:6px}
+@media(max-width:700px){.login-card{padding:27px 22px}.logout-btn span{display:none}}
+
+
+/* ApexStay supplied brand logo */
+.apexstay-logo{display:block;object-fit:contain;background:#fff;flex-shrink:0}.login-logo{width:54px;height:54px;border-radius:12px;padding:3px}.sidebar-logo{width:42px;height:42px;border-radius:10px;padding:2px}.invoice-logo{width:42px;height:42px;border-radius:9px;padding:2px}
