@@ -30,3 +30,32 @@
 
 /* ApexStay supplied brand logo */
 .apexstay-logo{display:block;object-fit:contain;background:#fff;flex-shrink:0}.login-logo{width:54px;height:54px;border-radius:12px;padding:3px}.sidebar-logo{width:42px;height:42px;border-radius:10px;padding:2px}.invoice-logo{width:42px;height:42px;border-radius:9px;padding:2px}
+
+/* Recommendation enhancements */
+.barcode-scan{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px;padding:12px;border:1px dashed #cbd5e1;border-radius:12px;background:#f8fafc}
+.barcode-scan input{flex:1;min-width:180px;border:1px solid #dbe2ea;border-radius:8px;padding:10px 12px;font:inherit;background:#fff}
+.barcode-scan small{width:100%;color:#64748b;font-size:11px}
+
+/* Keyboard-first POS product entry */
+.pos-command{margin:0 18px 12px;padding:12px;border:1px solid #cbd9ed;border-radius:10px;background:#f8fbff}
+.pos-command-input{display:flex;align-items:center;gap:10px;color:#7d91aa}
+.pos-command-input input{flex:1;min-width:0;border:1px solid #dbe4ef;border-radius:8px;padding:12px 13px;font:inherit;font-size:12px;color:#263950;background:#fff;outline:none}
+.pos-command-input input:focus{border-color:#6e9be9;box-shadow:0 0 0 3px #2563eb14}
+.pos-command-input .btn{padding:11px 16px}
+.pos-key-help{margin-top:9px;color:#78899e;font-size:9px;line-height:1.6}
+.pos-key-help b{color:#2563eb}
+.pos-key-help kbd{display:inline-block;padding:1px 5px;border:1px solid #d8e1ec;border-bottom-width:2px;border-radius:4px;background:#fff;color:#34475e;font:700 9px ui-monospace,monospace}
+@media(max-width:600px){.pos-command-input{flex-wrap:wrap}.pos-command-input input{flex-basis:100%}.pos-command-input .btn{width:100%}}
+
+/* POS keyboard-navigable product recommendations */
+.pos-command{position:relative}
+.pos-suggestions{position:relative;z-index:5;margin-top:8px;border:1px solid #d8e2ef;border-radius:9px;background:#fff;box-shadow:0 10px 24px #18314d16;overflow:hidden}
+.pos-suggestion{display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px;border:0;border-bottom:1px solid #edf1f6;background:#fff;text-align:left;cursor:pointer;color:#263950}
+.pos-suggestion:last-child{border-bottom:0}
+.pos-suggestion:hover,.pos-suggestion.active{background:#eff6ff;outline:none}
+.pos-suggestion.active{box-shadow:inset 3px 0 #2563eb}
+.pos-suggestion-main,.pos-suggestion-meta{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pos-suggestion-main b{font-size:12px}
+.pos-suggestion-main small,.pos-suggestion-meta small{font-size:10px;color:#718198}
+.pos-suggestion-meta{text-align:right;white-space:nowrap}
+.pos-suggestion-meta b{font-size:11px;color:#1d4ed8}

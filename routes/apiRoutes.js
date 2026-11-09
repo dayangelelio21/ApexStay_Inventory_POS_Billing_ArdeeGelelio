@@ -1,5 +1,6 @@
 import express from 'express';
 import * as api from '../controllers/apiController.js';
+import * as extra from '../controllers/enhancementController.js';
 const router=express.Router();
 router.get('/health',api.health);router.get('/dashboard',api.dashboard);
 router.get('/categories',api.listCategories);router.post('/categories',api.createCategory);router.put('/categories/:id',api.updateCategory);router.delete('/categories/:id',api.deleteCategory);
@@ -8,4 +9,13 @@ router.get('/products',api.listProducts);router.post('/products',api.createProdu
 router.get('/inventory/low-stock',api.lowStock);router.get('/inventory/movements',api.listMovements);router.post('/inventory/stock-in',api.stockIn);router.post('/inventory/stock-out',api.stockOut);router.post('/inventory/adjust',api.adjustStock);
 router.get('/sales',api.listSales);router.post('/sales',api.createSale);router.get('/sales/:id',api.getSale);router.post('/sales/:id/payments',api.addPayment);
 router.get('/reports/sales',api.salesReport);router.get('/reports/inventory',api.inventoryReport);
+router.get('/analytics/sales',extra.salesAnalytics);
+router.get('/transactions/history',extra.transactionHistory);router.get('/transactions/export.csv',extra.exportTransactions);
+router.get('/barcodes/:value',extra.barcodeLookup);
+router.get('/branches',extra.branches);router.post('/branches',extra.createBranch);router.put('/branches/:id',extra.updateBranch);
+router.get('/customers',extra.customers);router.post('/customers',extra.createCustomer);router.put('/customers/:id',extra.updateCustomer);
+router.get('/membership-types',extra.membershipTypes);router.post('/membership-types',extra.createMembershipType);
+router.get('/memberships',extra.memberships);router.post('/memberships',extra.createMembership);
+router.get('/branch-inventory',extra.branchInventory);router.post('/branch-inventory',extra.setBranchStock);
+router.post('/user-branches',extra.assignUserBranch);
 export default router;

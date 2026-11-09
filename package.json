@@ -19,7 +19,8 @@
     "route:list": "node list-routes.js",
     "route:cache": "node route-cache.js",
     "seed": "node --env-file=.env seed.js",
-    "test:smoke": "node --test tests/*.test.js"
+    "test:smoke": "node --test tests/*.test.js",
+    "db:check": "node --env-file=.env check-db.js"
   },
   "dependencies": {
     "express": "^4.19.2",
